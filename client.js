@@ -1,3 +1,4 @@
+const { Console } = require("console");
 const net = require("net");
 
 const connect = function () {
@@ -9,8 +10,12 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
   
+  const name = "Hab";
   conn.on("connect", () => {
-    console.log("Your data has been received from server");
+    conn.write(`Name: ${name}`);
+  })
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server")  
   });
   
   conn.on('data', (data) => {
@@ -18,6 +23,7 @@ const connect = function () {
   })
   return conn;
 };
+connect();
 
 module.exports = connect;
 
