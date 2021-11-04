@@ -1,6 +1,5 @@
 // setup interface to handle user input from stdin
 
-// const { connect } = require("./client");
 
 let connection;
 
